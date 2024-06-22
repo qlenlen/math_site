@@ -1,0 +1,1231 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=0.55'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    /* Text editor */
+    --bg-color: #ffffff;
+    --text-color: #37352f;
+    --body-text-color: #37352f;
+    --text-cursor-color: var(--text-color);
+
+    --secondary-text-color: #73726e;
+    --text-accent-color: #e9e9e7;
+    --bg-color-dark: #f7f6f3;
+
+    --text-highlight-color: #4f3b2a;
+    --text-highlight-bg: #feecc8;
+
+    --code-fence-text-color: #37352f;
+    --code-fence-bg-color: #f7f6f3;
+
+    --blockquote-bg-color: #f7f7f7;
+    --blockquote-accent-color: var(--text-color);
+    --blockquote-text-color: var(--text-color);
+
+    --light-trait-100: #38352f;
+    --light-trait-200: #37352f;
+    --light-trait-300: #37352f;
+    --light-trait-400: #37352f;
+
+    --todo-bg-color: #2eaadc;
+    --todo-tick-color: #fff;
+
+    --search-select-bg-color: #edf3ec;
+    --search-select-text-color: #448361;
+
+    --search-hit-text-color: #d44c47;
+    --search-hit-bg-color: #fdebec;
+
+    --url-text-color: black;
+    --url-underline-color: #37352f;
+
+    --footnote-text-color: #f7f6f3;
+    --footnote-bg-color: #888884;
+
+    --table-primary-color: #f7f7f7;
+    --table-secondary-color: #fdfdfd;
+
+    --select-text-bg-color: #c0e5f4;
+
+    --code-color: #9a6e3a;
+    --code-cursor-color: var(--text-color);
+
+    --kbd-text-color: #73726e;
+    --kbd-bg-color: var(--bg-color-dark);
+
+    /* Menu system */
+    --side-bar-bg-color: var(--bg-color-dark);
+    --side-bar-text-color: var(--text-color);
+    --item-hover-bg-color: #e8e7e4;
+    --window-border: 1px solid var(--bg-color);
+
+    --active-file-bg-color: #e9e7e4;
+    --active-file-border-color: var(--active-file-bg-color);
+    --active-file-text-color: var(--text-color);
+
+    --footer-bg-color: var(--side-bar-bg-color);
+
+    --control-text-color: #72706b;
+
+    /* General */
+    --font-size: 15px;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    --monospace: 'SF Mono Medium', 'Fira Code', 'Cousine', 'Consolas', monospace;
+    --heading-char-color: var(--light-trait-400);
+    --color-popover-bg-color: var(--text-color);
+    --rawblock-edit-panel-bd: var(--bg-color-dark);
+    --meta-content-color: var(--body-text-color);
+    --primary-btn-border-color: var(--body-text-color);
+    --border-radius: 4px;
+
+
+    /* Code variables */
+    --cm-line: #999999;
+    --cm-variable: #37352f;
+    --cm-keyword: #0277aa;
+    --cm-tag: #ff5a5a;
+    --cm-bracket: #ff5a5a;
+    --cm-error: #ff5a5a;
+    --cm-attribute: #0277aa;
+    --cm-def: #dc4a68;
+    --cm-comment: #708090;
+    --cm-string: #669900;
+    --cm-operator: #9a6e3b;
+    --cm-number: #990055;
+    --cm-meta: var(--text-color);
+    --cm-atom: #845dc4;
+    --cm-builtin: #669900;
+    --cm-property: var(--text-color);
+    --cm-variable-2: var(--text-color);
+    --cm-variable-3: #0277aa;
+    --cm-gutter: #f1f3f450;
+}
+
+html {
+    font-size: var(--font-size);
+}
+
+body {
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    color: var(--body-text-color);
+    line-height: 1.6;
+}
+
+code {
+    background-color: var(--code-fence-bg-color);
+    padding: 2px 2px 2px 2px;
+}
+
+#write {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+    #write {
+        max-width: 1024px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #write {
+        max-width: 1200px;
+    }
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+    margin-top: 30px;
+}
+
+a {
+    color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    cursor: text;
+}
+
+cursor {
+    color: var(--text-cursor-color)
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code,
+h2 tt,
+h2 code,
+h3 tt,
+h3 code,
+h4 tt,
+h4 code,
+h5 tt,
+h5 code,
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+h1 {
+    padding-bottom: 0.3em;
+    font-size: 2.2em;
+    line-height: 1.3;
+    color: var(--light-trait-100);
+}
+
+h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    color: var(--light-trait-200);
+}
+
+h3 {
+    font-size: 1.4em;
+    line-height: 1.43;
+    color: var(--light-trait-300);
+}
+
+h4 {
+    font-size: 1.2em;
+    color: var(--light-trait-400);
+}
+
+h5 {
+    font-size: 1em;
+    color: var(--light-trait-400);
+}
+
+h6 {
+    font-size: 1em;
+    color: var(--light-trait-400);
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+
+hr {
+    background-color: var(--light-trait-100);
+    height: 1.5px;
+    border: none
+}
+
+a,
+.md-def-url {
+    color: var(--url-text-color);
+    text-decoration: none;
+    border-bottom: 0.05em solid;
+    border-color: var(--url-underline-color);
+    transition: all .1s ease-in;
+}
+
+a:hover {
+    text-decoration: none;
+    opacity: 1;
+}
+
+sup.md-footnote {
+    background-color: var(--footnote-text-color);
+    color: var(--footnote-bg-color);
+}
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0.35%;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+mark,
+.ty-file-search-match-text,
+.md-search-hit {
+    background: var(--search-hit-bg-color);
+    color: var(--search-hit-text-color);
+}
+
+mark {
+    border-radius: 4px;
+    color: var(--text-highlight-color);
+    font-weight: inherit;
+    background-color: var(--text-highlight-bg);
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.md-search-hit * {
+    background: var(--search-select-bg-color);
+    color: var(--search-select-text-color);
+}
+
+/* Search highlight */
+.cm-search-hit.CodeMirror-selectedtext,
+.md-search-hit.md-search-select,
+.md-search-select {
+    outline: 0px solid var(--search-select-text-color);
+}
+
+.outline-item.select,
+.ty-search-item-line.select,
+.ty-search-item.select {
+    outline-width: 2px;
+}
+
+.outline-item.select {
+    outline-offset: 0px;
+}
+
+blockquote {
+    color: var(--blockquote-text-color);
+    margin-left: 1.75px;
+    margin-right: 0px;
+    border-left: 4px solid var(--blockquote-accent-color);
+    padding: 10px 14px 7px 22px;
+    /* change the quote highlight */
+    background-color: var(--blockquote-bg-color);
+}
+
+blockquote blockquote {
+    padding-right: 0;
+}
+
+/* Alternating color rows in table*/
+table tr:nth-child(2n) {
+    background-color: var(--table-primary-color);
+}
+
+table tr:nth-child(2n + 1) {
+    background-color: var(--table-secondary-color);
+}
+
+/* Alternating color rows in table*/
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border-top: 1px solid var(--text-accent-color);
+    margin: 0;
+    padding: 0;
+}
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid var(--text-accent-color);
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr td {
+    border: 1px solid var(--text-accent-color);
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+kbd {
+    font-size: 0.875rem;
+    background: var(--kbd-bg-color);
+    border: 1px solid var(--text-accent-color);
+    box-shadow: 0 2px 0 var(--text-accent-color);
+    color: var(--kbd-text-color);
+}
+
+.md-fences,
+code,
+tt {
+    border: none;
+    color: var(--code-fence-text-color);
+    background-color: var(--code-fence-bg-color);
+    border-radius: var(--border-radius);
+    padding: 2px 4px 0px 4px;
+    font-size: 0.975em;
+    font-weight: medium;
+    font-family: var(--monospace)
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: var(--bg-color-dark);
+    border: 0;
+    border-radius: var(--border-radius);
+    color: var(--secondary-text-color);
+    margin-top: 0 !important;
+}
+
+#write .mathjax-block .md-rawblock-tooltip {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+
+#write .mathjax-block .md-math-container {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+#write .md-mathblock-panel .md-rawblock-control:first-of-type {
+    border-top-left-radius: var(--border-radius);
+}
+
+.md-mathjax-midline {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.md-inline-math script {
+    color: var(--code-color);
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: none;
+    border-radius: var(--border-radius);
+}
+
+#write .code-tooltip {
+    bottom: initial;
+    top: 100%;
+    left: initial;
+    right: -1px;
+    background: var(--bg-color-dark);
+    border: 1px solid var(--text-accent-color);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 0;
+    font-family: var(--monospace);
+}
+
+#write .md-mathblock-panel .code-tooltip {
+    right: 0;
+    border: none;
+}
+
+/* TODO */
+#write .md-task-list-item>input {
+    -webkit-appearance: initial;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    border: 1px solid var(--text-color);
+    margin-top: 0.3rem;
+    margin-left: -1.45rem;
+    height: 0.95rem;
+    width: 0.95rem;
+    transition: all 0.35s;
+}
+
+#write .md-task-list-item>input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#write .md-task-list-item>input[checked] {
+    background: var(--todo-bg-color);
+    border: 1px solid var(--todo-bg-color);
+    text-decoration: line-through;
+}
+
+#write .md-task-list-item>input[checked]::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: '✓';
+    position: absolute;
+    margin-top: 0.05rem;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: var(--todo-tick-color);
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+#write .md-task-list-item>input[checked]::after {
+    text-decoration: line-through;
+}
+
+/* TODO */
+.md-image>.md-meta {
+    border-radius: var(--border-radius);
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Source mode */
+.CodeMirror.cm-s-typora-default *,
+.cm-s-typora-default * {
+    background: inherit;
+    color: var(--body-text-color);
+    font-family: var(--monospace);
+    font-size: var(--font-size) !important;
+    font-style: normal;
+    font-weight: medium;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+    border-left: 2.75px solid var(--code-cursor-color);
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 2.75px solid var(--code-cursor-color);
+}
+
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+.outline-expander {
+    width: 1.5rem;
+    vertical-align: initial;
+}
+
+.outline-expander:before,
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before,
+.outline-item-open>.outline-item>.outline-expander:hover:before {
+    content: "\f125";
+    transition: transform 125ms ease-in-out;
+}
+
+.outline-item-open>.outline-item>.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+    transform: rotate(90deg);
+}
+
+.outline-label:hover {
+    text-decoration: none;
+}
+
+#toc-dropmenu {
+    background: var(--bg-color-dark);
+}
+
+#toc-dropmenu .outline-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.dropdown-menu .divider {
+    display: none;
+}
+
+.context-menu {
+    border: none !important;
+    backdrop-filter: saturate(180%) blur(20px) brightness(1.1);
+    background-color: var(--bg-color-dark);
+    box-shadow: 0 25.6px 57.6px 0 rgba(0, 0, 0, .22), 0 4.8px 14.4px 0 rgba(0, 0, 0, .18) !important;
+}
+
+.file-node-background {
+    height: 31px;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.file-node-icon {
+    margin-right: 8px;
+}
+
+.file-library-node:not(.file-node-root):focus>.file-node-content {
+    outline: none;
+}
+
+/* New file animation */
+.blink-area {
+    animation: none;
+}
+
+.file-list-item-summary {
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+}
+
+#md-searchpanel input {
+    border-radius: var(--border-radius);
+    box-shadow: none;
+}
+
+#md-searchpanel input:focus {
+    box-shadow: none;
+    border-color: var(--meta-content-color);
+}
+
+#md-searchpanel .search-type-selection {
+    width: auto;
+}
+
+#md-searchpanel .btn:not(.close-btn):hover {
+    box-shadow: none;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    color: var(--sidebar-text-color);
+    background-color: var(--side-bar-bg-color);
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+/* CODE HIGHLIGHT */
+pre.CodeMirror-line {
+    color: var(--cm-line) !important
+}
+
+.cm-variable {
+    color: var(--cm-variable) !important
+}
+
+.cm-keyword {
+    color: var(--cm-keyword) !important
+}
+
+.cm-tag {
+    color: var(--cm-tag) !important
+}
+
+.cm-variable-3 {
+    color: var(--cm-variable-3) !important
+}
+
+.cm-bracket {
+    color: var(--cm-bracket);
+}
+
+.cm-error {
+    color: var(--cm-error) !important;
+}
+
+.cm-attribute {
+    color: var(--cm-attribute) !important
+}
+
+.cm-def {
+    color: var(--cm-def) !important
+}
+
+.cm-comment {
+    color: var(--cm-comment) !important
+}
+
+.cm-string {
+    color: var(--cm-string) !important;
+    font-variant-ligatures: common-ligatures !important;
+}
+
+.cm-tag:not() {
+    font-weight: 700;
+}
+
+.cm-operator {
+    color: var(--cm-operator) !important
+}
+
+.cm-number {
+    color: var(--cm-number) !important
+}
+
+.cm-meta {
+    color: var(--cm-meta) !important;
+    font-weight: 700 !important;
+}
+
+.cm-atom {
+    color: var(--cm-atom) !important
+}
+
+.cm-builtin {
+    color: var(--cm-builtin) !important
+}
+
+.cm-property {
+    color: var(--cm-property) !important
+}
+
+.cm-variable-2 {
+    color: var(--cm-variable-2) !important
+}
+
+
+/* CODE HIGHLIGHT */
+
+.file-tree-node.active>.file-node-background {
+    color: var(--active-file-text-color);
+    background-color: var(--active-file-bg-color);
+    border-left: 0px solid var(--active-file-border-color) !important;
+    border-color: var(--active-file-border-color) !important;
+}
+
+.CodeMirror-gutters {
+    border-right: 1px solid var(--cm-gutter);
+    background: inherit;
+    white-space: nowrap;
+}
+
+.ty-footer,
+.sidebar-footer,
+footer {
+    backdrop-filter: saturate(120%) blur(20px) brightness(0.85);
+    border: none !important;
+    background: none;
+    background-color: var(--footer-bg-color);
+}
+
+.code-tooltip {
+    border-radius: 4px;
+    background-color: var(--dark-trait);
+    box-shadow: 0 25.6px 57.6px 0 rgba(0, 0, 0, .52), 0 4.8px 14.4px 0 rgba(0, 0, 0, .28) !important;
+}
+
+#sidebar-files-menu {
+    color: var(--side-bar-text-color);
+    border-radius: 4px;
+    border: none !important;
+    box-shadow: 0 25.6px 57.6px 0 #f7f6f3, 0 4.8px 14.4px 0 rgba(0, 0, 0, .28);
+}
+
+.code-tooltip.md-tooltip-hide.md-hover-tip {
+    box-shadow: 0 25.6px 57.6px 0 rgba(0, 0, 0, .52), 0 4.8px 14.4px 0 rgba(0, 0, 0, .28);
+}
+
+#typora-sidebar {
+    border: none !important;
+}
+
+#footer-word-count-info,
+#spell-check-panel {
+    border: none !important;
+    backdrop-filter: saturate(120%) blur(20px) brightness(0.85) !important;
+    box-shadow: 0 25.6px 57.6px 0 rgba(0, 0, 0, .32), 0 4.8px 14.4px 0 rgba(0, 0, 0, .28) !important;
+}
+
+/* Windows/Linux unibody mode */
+.megamenu-content,
+.megamenu-opened header {
+    color: var(--body-text-color);
+    background: var(--bg-color-dark);
+}
+
+#recent-file-panel-action-btn {
+    background: inherit;
+    border: 1px var(--light-trait-300) solid;
+}
+
+.megamenu-menu-panel table td:nth-child(1) {
+    color: var(--text-color);
+    background: var(--bg-color-dark);
+}
+
+.megamenu-menu-panel table td:nth-child(2) {
+    color: var(--text-color);
+    background: var(--bg-color-dark);
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+    color: var(--text-color);
+    background: var(--active-file-bg-color);
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: var(--text-color);
+    background: var(--active-file-bg-color);
+}
+
+.megamenu-menu-panel input[type='text'] {
+    background: inherit;
+    border: 1px var(--text-color-secondary) solid;
+}
+
+#recent-file-panel-action-btn {
+    background: inherit;
+}
+
+.megamenu-menu,
+.megamenu-content {
+    background: var(--side-bar-bg-color);
+    color: var(--text-color);
+}
+
+#top-titlebar,
+#top-titlebar * {
+    background: inherit;
+    color: var(--text-color);
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+    color: var(--text-color);
+}
+
+megamenu-back-btn {
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover,
+.megamenu-menu-header:focus {
+    color: inherit;
+}
+
+.megamenu-menu-panel table tr:nth-child(2n + 1) {
+    background-color: var(--side-bar-bg-color);
+}
+
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG2"] path[data-c], mjx-container[jax="SVG2"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						}
+</style><title>mkll</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><center><h2>麦克劳林公式</h2></center><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n2" cid="n2" mdtype="math_block" data-math-tag-before="0" data-math-tag-after="0" data-math-labels="[]"><div class="md-rawblock-container md-math-container" contenteditable="false" tabindex="-1"><mjx-container class="MathJax" jax="SVG" display="true" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="66.651ex" height="86.205ex" role="img" focusable="false" viewBox="0 -19301.3 29459.5 38102.7" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -42.537ex;"><defs><path id="MJX-58-TEX-I-1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path><path id="MJX-58-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path><path id="MJX-58-TEX-N-A0" d=""></path><path id="MJX-58-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-58-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-58-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-58-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-58-TEX-N-21" d="M78 661Q78 682 96 699T138 716T180 700T199 661Q199 654 179 432T158 206Q156 198 139 198Q121 198 119 206Q118 209 98 431T78 661ZM79 61Q79 89 97 105T141 121Q164 119 181 104T198 61Q198 31 181 16T139 1Q114 1 97 16T79 61Z"></path><path id="MJX-58-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path id="MJX-58-TEX-N-22EF" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250ZM525 250Q525 274 542 292T585 310Q609 310 627 294T646 251Q646 226 629 208T586 190T543 207T525 250ZM972 250Q972 274 989 292T1032 310Q1056 310 1074 294T1093 251Q1093 226 1076 208T1033 190T990 207T972 250Z"></path><path id="MJX-58-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-58-TEX-I-1D70A" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path><path id="MJX-58-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-58-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path id="MJX-58-TEX-N-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"></path><path id="MJX-58-TEX-N-69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z"></path><path id="MJX-58-TEX-N-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path id="MJX-58-TEX-N-2061" d=""></path><path id="MJX-58-TEX-N-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path id="MJX-58-TEX-N-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path id="MJX-58-TEX-N-37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path id="MJX-58-TEX-N-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"></path><path id="MJX-58-TEX-N-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path><path id="MJX-58-TEX-N-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path id="MJX-58-TEX-N-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path id="MJX-58-TEX-N-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"></path><path id="MJX-58-TEX-N-61" d="M137 305T115 305T78 320T63 359Q63 394 97 421T218 448Q291 448 336 416T396 340Q401 326 401 309T402 194V124Q402 76 407 58T428 40Q443 40 448 56T453 109V145H493V106Q492 66 490 59Q481 29 455 12T400 -6T353 12T329 54V58L327 55Q325 52 322 49T314 40T302 29T287 17T269 6T247 -2T221 -8T190 -11Q130 -11 82 20T34 107Q34 128 41 147T68 188T116 225T194 253T304 268H318V290Q318 324 312 340Q290 411 215 411Q197 411 181 410T156 406T148 403Q170 388 170 359Q170 334 154 320ZM126 106Q126 75 150 51T209 26Q247 26 276 49T315 109Q317 116 318 175Q318 233 317 233Q309 233 296 232T251 223T193 203T147 166T126 106Z"></path><path id="MJX-58-TEX-I-1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path><path id="MJX-58-TEX-N-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path><path id="MJX-58-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-58-TEX-I-1D70B" d="M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z"></path><path id="MJX-58-TEX-LO-2211" d="M60 948Q63 950 665 950H1267L1325 815Q1384 677 1388 669H1348L1341 683Q1320 724 1285 761Q1235 809 1174 838T1033 881T882 898T699 902H574H543H251L259 891Q722 258 724 252Q725 250 724 246Q721 243 460 -56L196 -356Q196 -357 407 -357Q459 -357 548 -357T676 -358Q812 -358 896 -353T1063 -332T1204 -283T1307 -196Q1328 -170 1348 -124H1388Q1388 -125 1381 -145T1356 -210T1325 -294L1267 -449L666 -450Q64 -450 61 -448Q55 -446 55 -439Q55 -437 57 -433L590 177Q590 178 557 222T452 366T322 544L56 909L55 924Q55 945 60 948Z"></path><path id="MJX-58-TEX-N-221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path><path id="MJX-58-TEX-N-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path id="MJX-58-TEX-N-2208" d="M84 250Q84 372 166 450T360 539Q361 539 377 539T419 540T469 540H568Q583 532 583 520Q583 511 570 501L466 500Q355 499 329 494Q280 482 242 458T183 409T147 354T129 306T124 272V270H568Q583 262 583 250T568 230H124V228Q124 207 134 177T167 112T231 48T328 7Q355 1 466 0H570Q583 -10 583 -20Q583 -32 568 -40H471Q464 -40 446 -40T417 -41Q262 -41 172 45Q84 127 84 250Z"></path><path id="MJX-58-TEX-I-1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mtable"><g data-mml-node="mtr" transform="translate(0,17791.4)"><g data-mml-node="mtd" transform="translate(2767,0)"><g data-mml-node="msup"><g data-mml-node="mi"><use data-c="1D452" xlink:href="#MJX-58-TEX-I-1D452"></use></g><g data-mml-node="mi" transform="translate(499,413) scale(0.707)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g></g><g data-mml-node="mtext" transform="translate(953.5,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g></g><g data-mml-node="mtd" transform="translate(3970.4,0)"><g data-mml-node="mi"></g><g data-mml-node="mo" transform="translate(277.8,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mtext" transform="translate(1333.6,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g><g data-mml-node="mn" transform="translate(1583.6,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(2305.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(3306,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(4100.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(5100.4,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g></g><g data-mml-node="mrow" transform="translate(335.3,-686)"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(6771.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(7771.4,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g></g><g data-mml-node="mrow" transform="translate(335.3,-686)"><g data-mml-node="mn"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(9442.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(10442.4,0)"><use data-c="22EF" xlink:href="#MJX-58-TEX-N-22EF"></use></g><g data-mml-node="mo" transform="translate(11836.7,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(12836.9,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mi" transform="translate(605,363) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mrow" transform="translate(320.6,-686)"><g data-mml-node="mi"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(600,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1279.3" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(14578.4,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(15578.6,0)"><use data-c="1D70A" xlink:href="#MJX-58-TEX-I-1D70A"></use></g><g data-mml-node="mo" transform="translate(16063.6,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="msup" transform="translate(16452.6,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mi" transform="translate(605,413) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mo" transform="translate(17531.9,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g></g></g><g data-mml-node="mtr" transform="translate(0,16033.4)"><g data-mml-node="mtd" transform="translate(3970.4,0)"></g></g><g data-mml-node="mtr" transform="translate(0,13966.4)"><g data-mml-node="mtd" transform="translate(1753.8,0)"><g data-mml-node="mi"><use data-c="73" xlink:href="#MJX-58-TEX-N-73"></use><use data-c="69" xlink:href="#MJX-58-TEX-N-69" transform="translate(394,0)"></use><use data-c="6E" xlink:href="#MJX-58-TEX-N-6E" transform="translate(672,0)"></use></g><g data-mml-node="mo" transform="translate(1228,0)"><use data-c="2061" xlink:href="#MJX-58-TEX-N-2061"></use></g><g data-mml-node="mi" transform="translate(1394.7,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mtext" transform="translate(1966.7,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g></g><g data-mml-node="mtd" transform="translate(3970.4,0)"><g data-mml-node="mi"></g><g data-mml-node="mo" transform="translate(277.8,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mtext" transform="translate(1333.6,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g><g data-mml-node="mi" transform="translate(1583.6,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(2377.8,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mfrac" transform="translate(3378,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g></g><g data-mml-node="mrow" transform="translate(335.3,-686)"><g data-mml-node="mn"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(5048.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(6049,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="35" xlink:href="#MJX-58-TEX-N-35"></use></g></g><g data-mml-node="mrow" transform="translate(335.3,-686)"><g data-mml-node="mn"><use data-c="35" xlink:href="#MJX-58-TEX-N-35"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(7719.8,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mfrac" transform="translate(8720,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="37" xlink:href="#MJX-58-TEX-N-37"></use></g></g><g data-mml-node="mrow" transform="translate(335.3,-686)"><g data-mml-node="mn"><use data-c="37" xlink:href="#MJX-58-TEX-N-37"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(10390.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(11391,0)"><use data-c="22EF" xlink:href="#MJX-58-TEX-N-22EF"></use></g><g data-mml-node="mo" transform="translate(12785.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(13785.4,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mo" transform="translate(14174.4,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(14952.4,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="msup" transform="translate(15452.4,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mi" transform="translate(422,413) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mfrac" transform="translate(16348.7,0)"><g data-mml-node="msup" transform="translate(991,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="TeXAtom" transform="translate(605,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(500,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1100,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(1878,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g></g></g><g data-mml-node="mrow" transform="translate(220,-710)"><g data-mml-node="mo"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(389,0)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(889,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1711.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(2711.4,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(3211.4,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mo" transform="translate(3600.4,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="4078.4" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(20889.4,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(21889.6,0)"><use data-c="1D70A" xlink:href="#MJX-58-TEX-I-1D70A"></use></g><g data-mml-node="mo" transform="translate(22374.6,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="msup" transform="translate(22763.6,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="TeXAtom" transform="translate(605,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(500,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1100,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(1878,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g></g></g><g data-mml-node="mo" transform="translate(25100.1,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g></g></g><g data-mml-node="mtr" transform="translate(0,11956.4)"><g data-mml-node="mtd" transform="translate(3970.4,0)"></g></g><g data-mml-node="mtr" transform="translate(0,9888.7)"><g data-mml-node="mtd" transform="translate(1643.8,0)"><g data-mml-node="mi"><use data-c="63" xlink:href="#MJX-58-TEX-N-63"></use><use data-c="6F" xlink:href="#MJX-58-TEX-N-6F" transform="translate(444,0)"></use><use data-c="73" xlink:href="#MJX-58-TEX-N-73" transform="translate(944,0)"></use></g><g data-mml-node="mo" transform="translate(1338,0)"><use data-c="2061" xlink:href="#MJX-58-TEX-N-2061"></use></g><g data-mml-node="mi" transform="translate(1504.7,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mtext" transform="translate(2076.7,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g></g><g data-mml-node="mtd" transform="translate(3970.4,0)"><g data-mml-node="mi"></g><g data-mml-node="mo" transform="translate(277.8,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mtext" transform="translate(1333.6,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g><g data-mml-node="mn" transform="translate(1583.6,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(2305.8,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mfrac" transform="translate(3306,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g></g><g data-mml-node="mrow" transform="translate(335.3,-686)"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(4976.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(5977,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="34" xlink:href="#MJX-58-TEX-N-34"></use></g></g><g data-mml-node="mrow" transform="translate(335.3,-686)"><g data-mml-node="mn"><use data-c="34" xlink:href="#MJX-58-TEX-N-34"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(7647.8,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mfrac" transform="translate(8648,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="36" xlink:href="#MJX-58-TEX-N-36"></use></g></g><g data-mml-node="mrow" transform="translate(335.3,-686)"><g data-mml-node="mn"><use data-c="36" xlink:href="#MJX-58-TEX-N-36"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(10318.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(11319,0)"><use data-c="22EF" xlink:href="#MJX-58-TEX-N-22EF"></use></g><g data-mml-node="mo" transform="translate(12713.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(13713.4,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mo" transform="translate(14102.4,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(14880.4,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="msup" transform="translate(15380.4,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mi" transform="translate(422,413) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mfrac" transform="translate(16276.7,0)"><g data-mml-node="msup" transform="translate(581.6,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="TeXAtom" transform="translate(605,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(500,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g></g><g data-mml-node="mrow" transform="translate(220,-710)"><g data-mml-node="mo"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(389,0)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(889,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1489,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mo" transform="translate(1878,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="2356" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(19094.9,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(20095.1,0)"><use data-c="1D70A" xlink:href="#MJX-58-TEX-I-1D70A"></use></g><g data-mml-node="mo" transform="translate(20580.1,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="msup" transform="translate(20969.1,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="TeXAtom" transform="translate(605,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(500,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g></g><g data-mml-node="mo" transform="translate(22402,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g></g></g><g data-mml-node="mtr" transform="translate(0,7878.7)"><g data-mml-node="mtd" transform="translate(3970.4,0)"></g></g><g data-mml-node="mtr" transform="translate(0,5784.8)"><g data-mml-node="mtd" transform="translate(1536.8,0)"><g data-mml-node="mi"><use data-c="74" xlink:href="#MJX-58-TEX-N-74"></use><use data-c="61" xlink:href="#MJX-58-TEX-N-61" transform="translate(389,0)"></use><use data-c="6E" xlink:href="#MJX-58-TEX-N-6E" transform="translate(889,0)"></use></g><g data-mml-node="mo" transform="translate(1445,0)"><use data-c="2061" xlink:href="#MJX-58-TEX-N-2061"></use></g><g data-mml-node="mi" transform="translate(1611.7,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mtext" transform="translate(2183.7,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g></g><g data-mml-node="mtd" transform="translate(3970.4,0)"><g data-mml-node="mi"></g><g data-mml-node="mo" transform="translate(277.8,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mtext" transform="translate(1333.6,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g><g data-mml-node="mi" transform="translate(1583.6,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(2377.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(3378,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(5048.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(6049,0)"><g data-mml-node="mrow" transform="translate(220,676)"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="msup" transform="translate(500,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="35" xlink:href="#MJX-58-TEX-N-35"></use></g></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use><use data-c="35" xlink:href="#MJX-58-TEX-N-35" transform="translate(500,0)"></use></g><rect width="1708.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(8219.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(9220,0)"><g data-mml-node="mrow" transform="translate(220,676)"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use><use data-c="37" xlink:href="#MJX-58-TEX-N-37" transform="translate(500,0)"></use></g><g data-mml-node="msup" transform="translate(1000,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="37" xlink:href="#MJX-58-TEX-N-37"></use></g></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use><use data-c="31" xlink:href="#MJX-58-TEX-N-31" transform="translate(500,0)"></use><use data-c="35" xlink:href="#MJX-58-TEX-N-35" transform="translate(1000,0)"></use></g><rect width="2208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(11890.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(12891,0)"><use data-c="22EF" xlink:href="#MJX-58-TEX-N-22EF"></use></g><g data-mml-node="mo" transform="translate(14285.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(15285.4,0)"><g data-mml-node="mrow" transform="translate(220,710)"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D435" xlink:href="#MJX-58-TEX-I-1D435"></use></g><g data-mml-node="TeXAtom" transform="translate(792,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(500,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g></g><g data-mml-node="mo" transform="translate(1619.8,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="msup" transform="translate(2008.8,0)"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="TeXAtom" transform="translate(533,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(500,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g></g><g data-mml-node="mo" transform="translate(3591.9,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(4592.1,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(5092.1,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g></g><g data-mml-node="mrow" transform="translate(1882.5,-710)"><g data-mml-node="mo"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(389,0)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(889,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1489,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mo" transform="translate(1878,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="5681.1" height="60" x="120" y="220"></rect></g><g data-mml-node="msup" transform="translate(21206.5,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="TeXAtom" transform="translate(605,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(500,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1100,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(1878,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g></g></g></g></g><g data-mml-node="mtr" transform="translate(0,3774.8)"><g data-mml-node="mtd" transform="translate(3970.4,0)"></g></g><g data-mml-node="mtr" transform="translate(0,1707.8)"><g data-mml-node="mtd" transform="translate(200.8,0)"><g data-mml-node="mi"><use data-c="61" xlink:href="#MJX-58-TEX-N-61"></use><use data-c="72" xlink:href="#MJX-58-TEX-N-72" transform="translate(500,0)"></use><use data-c="63" xlink:href="#MJX-58-TEX-N-63" transform="translate(892,0)"></use><use data-c="74" xlink:href="#MJX-58-TEX-N-74" transform="translate(1336,0)"></use><use data-c="61" xlink:href="#MJX-58-TEX-N-61" transform="translate(1725,0)"></use><use data-c="6E" xlink:href="#MJX-58-TEX-N-6E" transform="translate(2225,0)"></use></g><g data-mml-node="mo" transform="translate(2781,0)"><use data-c="2061" xlink:href="#MJX-58-TEX-N-2061"></use></g><g data-mml-node="mi" transform="translate(2947.7,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mtext" transform="translate(3519.7,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g></g><g data-mml-node="mtd" transform="translate(3970.4,0)"><g data-mml-node="mi"></g><g data-mml-node="mo" transform="translate(277.8,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mtext" transform="translate(1333.6,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g><g data-mml-node="mi" transform="translate(1583.6,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(2377.8,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mfrac" transform="translate(3378,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(5048.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(6049,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="35" xlink:href="#MJX-58-TEX-N-35"></use></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><use data-c="35" xlink:href="#MJX-58-TEX-N-35"></use></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(7719.8,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mfrac" transform="translate(8720,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="37" xlink:href="#MJX-58-TEX-N-37"></use></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><use data-c="37" xlink:href="#MJX-58-TEX-N-37"></use></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(10390.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(11391,0)"><use data-c="22EF" xlink:href="#MJX-58-TEX-N-22EF"></use></g><g data-mml-node="mo" transform="translate(12785.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(13785.4,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mo" transform="translate(14174.4,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(14952.4,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="msup" transform="translate(15452.4,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mi" transform="translate(422,413) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mfrac" transform="translate(16348.7,0)"><g data-mml-node="msup" transform="translate(463,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="TeXAtom" transform="translate(605,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(500,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1100,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(1878,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g></g></g><g data-mml-node="mrow" transform="translate(220,-686)"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(500,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1322.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(2322.4,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g></g><rect width="3022.4" height="60" x="120" y="220"></rect></g></g></g><g data-mml-node="mtr" transform="translate(0,-110.2)"><g data-mml-node="mtd" transform="translate(3970.4,0)"></g></g><g data-mml-node="mtr" transform="translate(0,-2177.2)"><g data-mml-node="mtd" transform="translate(667.8,0)"><g data-mml-node="mi"><use data-c="61" xlink:href="#MJX-58-TEX-N-61"></use><use data-c="72" xlink:href="#MJX-58-TEX-N-72" transform="translate(500,0)"></use><use data-c="63" xlink:href="#MJX-58-TEX-N-63" transform="translate(892,0)"></use><use data-c="73" xlink:href="#MJX-58-TEX-N-73" transform="translate(1336,0)"></use><use data-c="69" xlink:href="#MJX-58-TEX-N-69" transform="translate(1730,0)"></use><use data-c="6E" xlink:href="#MJX-58-TEX-N-6E" transform="translate(2008,0)"></use></g><g data-mml-node="mo" transform="translate(2564,0)"><use data-c="2061" xlink:href="#MJX-58-TEX-N-2061"></use></g><g data-mml-node="mi" transform="translate(2730.7,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g></g><g data-mml-node="mtd" transform="translate(3970.4,0)"><g data-mml-node="mi"></g><g data-mml-node="mo" transform="translate(277.8,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mi" transform="translate(1333.6,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(2127.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(3128,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><use data-c="36" xlink:href="#MJX-58-TEX-N-36"></use></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(4798.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(5799,0)"><g data-mml-node="mrow" transform="translate(220,676)"><g data-mml-node="mn"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g><g data-mml-node="msup" transform="translate(500,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="35" xlink:href="#MJX-58-TEX-N-35"></use></g></g></g><g data-mml-node="mn" transform="translate(474.3,-686)"><use data-c="34" xlink:href="#MJX-58-TEX-N-34"></use><use data-c="30" xlink:href="#MJX-58-TEX-N-30" transform="translate(500,0)"></use></g><rect width="1708.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(7969.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(8970,0)"><g data-mml-node="mrow" transform="translate(220,676)"><g data-mml-node="mn"><use data-c="35" xlink:href="#MJX-58-TEX-N-35"></use></g><g data-mml-node="msup" transform="translate(500,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="37" xlink:href="#MJX-58-TEX-N-37"></use></g></g></g><g data-mml-node="mn" transform="translate(224.3,-686)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use><use data-c="31" xlink:href="#MJX-58-TEX-N-31" transform="translate(500,0)"></use><use data-c="32" xlink:href="#MJX-58-TEX-N-32" transform="translate(1000,0)"></use></g><rect width="1708.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(11140.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(12141,0)"><use data-c="22EF" xlink:href="#MJX-58-TEX-N-22EF"></use></g><g data-mml-node="mo" transform="translate(13535.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(14535.4,0)"><g data-mml-node="mrow" transform="translate(2492.1,710)"><g data-mml-node="mo"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(389,0)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(889,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1489,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mo" transform="translate(1878,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><g data-mml-node="mrow" transform="translate(220,-719.9)"><g data-mml-node="msup"><g data-mml-node="mn"><use data-c="34" xlink:href="#MJX-58-TEX-N-34"></use></g><g data-mml-node="mi" transform="translate(533,289) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mo" transform="translate(1007.3,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mi" transform="translate(1396.3,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1996.3,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g><g data-mml-node="msup" transform="translate(2274.3,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mn" transform="translate(422,289) scale(0.707)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g></g><g data-mml-node="mo" transform="translate(3099.8,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(3488.8,0)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(3988.8,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(4811,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(5811.3,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(6311.3,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g></g><rect width="6900.3" height="60" x="120" y="220"></rect></g><g data-mml-node="msup" transform="translate(21675.7,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="TeXAtom" transform="translate(605,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(500,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1100,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(1878,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g></g></g></g></g><g data-mml-node="mtr" transform="translate(0,-4197.2)"><g data-mml-node="mtd" transform="translate(3970.4,0)"></g></g><g data-mml-node="mtr" transform="translate(0,-6309.7)"><g data-mml-node="mtd" transform="translate(307.8,0)"><g data-mml-node="mi"><use data-c="61" xlink:href="#MJX-58-TEX-N-61"></use><use data-c="72" xlink:href="#MJX-58-TEX-N-72" transform="translate(500,0)"></use><use data-c="63" xlink:href="#MJX-58-TEX-N-63" transform="translate(892,0)"></use><use data-c="63" xlink:href="#MJX-58-TEX-N-63" transform="translate(1336,0)"></use><use data-c="6F" xlink:href="#MJX-58-TEX-N-6F" transform="translate(1780,0)"></use><use data-c="73" xlink:href="#MJX-58-TEX-N-73" transform="translate(2280,0)"></use></g><g data-mml-node="mo" transform="translate(2674,0)"><use data-c="2061" xlink:href="#MJX-58-TEX-N-2061"></use></g><g data-mml-node="mi" transform="translate(2840.7,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mtext" transform="translate(3412.7,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g></g><g data-mml-node="mtd" transform="translate(3970.4,0)"><g data-mml-node="mi"></g><g data-mml-node="mo" transform="translate(277.8,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mtext" transform="translate(1333.6,0)"><use data-c="A0" xlink:href="#MJX-58-TEX-N-A0"></use></g><g data-mml-node="mfrac" transform="translate(1583.6,0)"><g data-mml-node="mi" transform="translate(220,676)"><use data-c="1D70B" xlink:href="#MJX-58-TEX-I-1D70B"></use></g><g data-mml-node="mn" transform="translate(255,-686)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><rect width="770" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(2815.8,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mi" transform="translate(3816,0)"><use data-c="61" xlink:href="#MJX-58-TEX-N-61"></use><use data-c="72" xlink:href="#MJX-58-TEX-N-72" transform="translate(500,0)"></use><use data-c="63" xlink:href="#MJX-58-TEX-N-63" transform="translate(892,0)"></use><use data-c="73" xlink:href="#MJX-58-TEX-N-73" transform="translate(1336,0)"></use><use data-c="69" xlink:href="#MJX-58-TEX-N-69" transform="translate(1730,0)"></use><use data-c="6E" xlink:href="#MJX-58-TEX-N-6E" transform="translate(2008,0)"></use></g><g data-mml-node="mo" transform="translate(6380,0)"><use data-c="2061" xlink:href="#MJX-58-TEX-N-2061"></use></g><g data-mml-node="mi" transform="translate(6546.7,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(7396.4,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mfrac" transform="translate(8452.2,0)"><g data-mml-node="mi" transform="translate(220,676)"><use data-c="1D70B" xlink:href="#MJX-58-TEX-I-1D70B"></use></g><g data-mml-node="mn" transform="translate(255,-686)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><rect width="770" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(9684.4,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="munderover" transform="translate(10684.7,0)"><g data-mml-node="mo"><use data-c="2211" xlink:href="#MJX-58-TEX-LO-2211"></use></g><g data-mml-node="TeXAtom" transform="translate(58,-1087.9) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(600,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(1378,0)"><use data-c="30" xlink:href="#MJX-58-TEX-N-30"></use></g></g><g data-mml-node="TeXAtom" transform="translate(368.4,1150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="221E" xlink:href="#MJX-58-TEX-N-221E"></use></g></g></g><g data-mml-node="mfrac" transform="translate(12295.3,0)"><g data-mml-node="mrow" transform="translate(2492.1,710)"><g data-mml-node="mo"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(389,0)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(889,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1489,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mo" transform="translate(1878,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><g data-mml-node="mrow" transform="translate(220,-719.9)"><g data-mml-node="msup"><g data-mml-node="mn"><use data-c="34" xlink:href="#MJX-58-TEX-N-34"></use></g><g data-mml-node="mi" transform="translate(533,289) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mo" transform="translate(1007.3,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mi" transform="translate(1396.3,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1996.3,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g><g data-mml-node="msup" transform="translate(2274.3,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mn" transform="translate(422,289) scale(0.707)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g></g><g data-mml-node="mo" transform="translate(3099.8,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(3488.8,0)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(3988.8,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(4811,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(5811.3,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(6311.3,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g></g><rect width="6900.3" height="60" x="120" y="220"></rect></g><g data-mml-node="msup" transform="translate(19435.6,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="TeXAtom" transform="translate(605,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(500,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(1100,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(1878,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g></g></g></g></g><g data-mml-node="mtr" transform="translate(0,-8605.6)"><g data-mml-node="mtd" transform="translate(3970.4,0)"></g></g><g data-mml-node="mtr" transform="translate(0,-10497.6)"><g data-mml-node="mtd" transform="translate(1236,0)"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(1117.2,676)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mrow" transform="translate(220,-686)"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(722.2,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mi" transform="translate(1722.4,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g></g><rect width="2494.4" height="60" x="120" y="220"></rect></g></g><g data-mml-node="mtd" transform="translate(3970.4,0)"><g data-mml-node="mi"></g><g data-mml-node="mo" transform="translate(277.8,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(1333.6,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(2055.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(3056,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(3850.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="msup" transform="translate(4850.4,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,413) scale(0.707)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g></g><g data-mml-node="mo" transform="translate(6081.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="msup" transform="translate(7081.4,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,413) scale(0.707)"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g></g><g data-mml-node="mo" transform="translate(8312.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(9312.4,0)"><use data-c="22EF" xlink:href="#MJX-58-TEX-N-22EF"></use></g><g data-mml-node="mo" transform="translate(10706.7,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="msup" transform="translate(11706.9,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mi" transform="translate(605,413) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mo" transform="translate(13008.4,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(14008.6,0)"><use data-c="1D70A" xlink:href="#MJX-58-TEX-I-1D70A"></use></g><g data-mml-node="mo" transform="translate(14493.6,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="msup" transform="translate(14882.6,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mi" transform="translate(605,413) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mo" transform="translate(15961.9,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mo" transform="translate(16350.9,0)"><use data-c="2C" xlink:href="#MJX-58-TEX-N-2C"></use></g><g data-mml-node="mi" transform="translate(16795.5,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(17645.3,0)"><use data-c="2208" xlink:href="#MJX-58-TEX-N-2208"></use></g><g data-mml-node="mo" transform="translate(18590.1,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mo" transform="translate(18979.1,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(19757.1,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(20257.1,0)"><use data-c="2C" xlink:href="#MJX-58-TEX-N-2C"></use></g><g data-mml-node="mn" transform="translate(20701.7,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(21201.7,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g></g></g><g data-mml-node="mtr" transform="translate(0,-12315.6)"><g data-mml-node="mtd" transform="translate(3970.4,0)"></g></g><g data-mml-node="mtr" transform="translate(0,-14207.6)"><g data-mml-node="mtd" transform="translate(1236,0)"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(1117.2,676)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mrow" transform="translate(220,-686)"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(722.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(1722.4,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g></g><rect width="2494.4" height="60" x="120" y="220"></rect></g></g><g data-mml-node="mtd" transform="translate(3970.4,0)"><g data-mml-node="mi"></g><g data-mml-node="mo" transform="translate(277.8,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(1333.6,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(2055.8,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mi" transform="translate(3056,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(3850.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="msup" transform="translate(4850.4,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,413) scale(0.707)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g></g><g data-mml-node="mo" transform="translate(6081.2,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="msup" transform="translate(7081.4,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,413) scale(0.707)"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g></g><g data-mml-node="mo" transform="translate(8312.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(9312.4,0)"><use data-c="22EF" xlink:href="#MJX-58-TEX-N-22EF"></use></g><g data-mml-node="mo" transform="translate(10706.7,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(11706.9,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mo" transform="translate(12095.9,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(12873.9,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="msup" transform="translate(13373.9,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mi" transform="translate(422,413) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="msup" transform="translate(14270.1,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mi" transform="translate(605,413) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mo" transform="translate(15571.6,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(16571.9,0)"><use data-c="1D70A" xlink:href="#MJX-58-TEX-I-1D70A"></use></g><g data-mml-node="mo" transform="translate(17056.9,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="msup" transform="translate(17445.9,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mi" transform="translate(605,413) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mo" transform="translate(18525.1,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="mo" transform="translate(18914.1,0)"><use data-c="2C" xlink:href="#MJX-58-TEX-N-2C"></use></g><g data-mml-node="mi" transform="translate(19358.8,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(20208.6,0)"><use data-c="2208" xlink:href="#MJX-58-TEX-N-2208"></use></g><g data-mml-node="mo" transform="translate(21153.3,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mo" transform="translate(21542.3,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(22320.3,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(22820.3,0)"><use data-c="2C" xlink:href="#MJX-58-TEX-N-2C"></use></g><g data-mml-node="mn" transform="translate(23265,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(23765,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g></g></g><g data-mml-node="mtr" transform="translate(0,-16025.6)"><g data-mml-node="mtd" transform="translate(3970.4,0)"></g></g><g data-mml-node="mtr" transform="translate(0,-18093.3)"><g data-mml-node="mtd"><g data-mml-node="mi"><use data-c="1D459" xlink:href="#MJX-58-TEX-I-1D459"></use></g><g data-mml-node="mi" transform="translate(298,0)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(898,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(1287,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(2009.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(3009.4,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(3581.4,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g></g><g data-mml-node="mtd" transform="translate(3970.4,0)"><g data-mml-node="mi"></g><g data-mml-node="mo" transform="translate(277.8,0)"><use data-c="3D" xlink:href="#MJX-58-TEX-N-3D"></use></g><g data-mml-node="mi" transform="translate(1333.6,0)"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(2127.8,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mfrac" transform="translate(3128,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g></g><g data-mml-node="mrow" transform="translate(335.3,-686)"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-58-TEX-N-32"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(4798.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(5799,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g></g><g data-mml-node="mrow" transform="translate(335.3,-686)"><g data-mml-node="mn"><use data-c="33" xlink:href="#MJX-58-TEX-N-33"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(7469.8,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mfrac" transform="translate(8470,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mn" transform="translate(605,363) scale(0.707)"><use data-c="34" xlink:href="#MJX-58-TEX-N-34"></use></g></g><g data-mml-node="mrow" transform="translate(335.3,-686)"><g data-mml-node="mn"><use data-c="34" xlink:href="#MJX-58-TEX-N-34"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="21" xlink:href="#MJX-58-TEX-N-21"></use></g></g><rect width="1208.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(10140.8,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(11141,0)"><use data-c="22EF" xlink:href="#MJX-58-TEX-N-22EF"></use></g><g data-mml-node="mo" transform="translate(12535.2,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mo" transform="translate(13535.4,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="mo" transform="translate(13924.4,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(14702.4,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g><g data-mml-node="msup" transform="translate(15202.4,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g><g data-mml-node="TeXAtom" transform="translate(422,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(600,0)"><use data-c="2212" xlink:href="#MJX-58-TEX-N-2212"></use></g><g data-mml-node="mn" transform="translate(1378,0)"><use data-c="31" xlink:href="#MJX-58-TEX-N-31"></use></g></g></g><g data-mml-node="mfrac" transform="translate(17002.4,0)"><g data-mml-node="msup" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="mi" transform="translate(605,363) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g><g data-mml-node="mi" transform="translate(459.6,-686)"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g><rect width="1279.3" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(18743.9,0)"><use data-c="2B" xlink:href="#MJX-58-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(19744.1,0)"><use data-c="1D70A" xlink:href="#MJX-58-TEX-I-1D70A"></use></g><g data-mml-node="mo" transform="translate(20229.1,0)"><use data-c="28" xlink:href="#MJX-58-TEX-N-28"></use></g><g data-mml-node="msup" transform="translate(20618.1,0)"><g data-mml-node="mi"><use data-c="1D465" xlink:href="#MJX-58-TEX-I-1D465"></use></g><g data-mml-node="TeXAtom" transform="translate(605,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D45B" xlink:href="#MJX-58-TEX-I-1D45B"></use></g></g></g><g data-mml-node="mo" transform="translate(21697.4,0)"><use data-c="29" xlink:href="#MJX-58-TEX-N-29"></use></g></g></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtable displaystyle="true" columnalign="right left" columnspacing="0em" rowspacing="3pt"><mtr><mtd><msup><mi>e</mi><mi>x</mi></msup><mtext>&nbsp;</mtext></mtd><mtd><mi></mi><mo>=</mo><mtext>&nbsp;</mtext><mn>1</mn><mo>+</mo><mi>x</mi><mo>+</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mrow><mn>2</mn><mo>!</mo></mrow></mfrac><mo>+</mo><mfrac><msup><mi>x</mi><mn>3</mn></msup><mrow><mn>3</mn><mo>!</mo></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mfrac><msup><mi>x</mi><mi>n</mi></msup><mrow><mi>n</mi><mo>!</mo></mrow></mfrac><mo>+</mo><mi>ο</mi><mo stretchy="false">(</mo><msup><mi>x</mi><mi>n</mi></msup><mo stretchy="false">)</mo></mtd></mtr><mtr><mtd></mtd></mtr><mtr><mtd><mi>sin</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>x</mi><mtext>&nbsp;</mtext></mtd><mtd><mi></mi><mo>=</mo><mtext>&nbsp;</mtext><mi>x</mi><mo>−</mo><mfrac><msup><mi>x</mi><mn>3</mn></msup><mrow><mn>3</mn><mo>!</mo></mrow></mfrac><mo>+</mo><mfrac><msup><mi>x</mi><mn>5</mn></msup><mrow><mn>5</mn><mo>!</mo></mrow></mfrac><mo>−</mo><mfrac><msup><mi>x</mi><mn>7</mn></msup><mrow><mn>7</mn><mo>!</mo></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>n</mi></msup><mfrac><msup><mi>x</mi><mrow data-mjx-texclass="ORD"><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mrow><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>!</mo></mrow></mfrac><mo>+</mo><mi>ο</mi><mo stretchy="false">(</mo><msup><mi>x</mi><mrow data-mjx-texclass="ORD"><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo stretchy="false">)</mo></mtd></mtr><mtr><mtd></mtd></mtr><mtr><mtd><mi>cos</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>x</mi><mtext>&nbsp;</mtext></mtd><mtd><mi></mi><mo>=</mo><mtext>&nbsp;</mtext><mn>1</mn><mo>−</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mrow><mn>2</mn><mo>!</mo></mrow></mfrac><mo>+</mo><mfrac><msup><mi>x</mi><mn>4</mn></msup><mrow><mn>4</mn><mo>!</mo></mrow></mfrac><mo>−</mo><mfrac><msup><mi>x</mi><mn>6</mn></msup><mrow><mn>6</mn><mo>!</mo></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>n</mi></msup><mfrac><msup><mi>x</mi><mrow data-mjx-texclass="ORD"><mn>2</mn><mi>n</mi></mrow></msup><mrow><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo stretchy="false">)</mo><mo>!</mo></mrow></mfrac><mo>+</mo><mi>ο</mi><mo stretchy="false">(</mo><msup><mi>x</mi><mrow data-mjx-texclass="ORD"><mn>2</mn><mi>n</mi></mrow></msup><mo stretchy="false">)</mo></mtd></mtr><mtr><mtd></mtd></mtr><mtr><mtd><mi>tan</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>x</mi><mtext>&nbsp;</mtext></mtd><mtd><mi></mi><mo>=</mo><mtext>&nbsp;</mtext><mi>x</mi><mo>+</mo><mfrac><msup><mi>x</mi><mn>3</mn></msup><mn>3</mn></mfrac><mo>+</mo><mfrac><mrow><mn>2</mn><msup><mi>x</mi><mn>5</mn></msup></mrow><mn>15</mn></mfrac><mo>+</mo><mfrac><mrow><mn>17</mn><msup><mi>x</mi><mn>7</mn></msup></mrow><mn>315</mn></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mfrac><mrow><msub><mi>B</mi><mrow data-mjx-texclass="ORD"><mn>2</mn><mi>n</mi></mrow></msub><mo stretchy="false">(</mo><msup><mn>2</mn><mrow data-mjx-texclass="ORD"><mn>2</mn><mi>n</mi></mrow></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mrow><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo stretchy="false">)</mo><mo>!</mo></mrow></mfrac><msup><mi>x</mi><mrow data-mjx-texclass="ORD"><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup></mtd></mtr><mtr><mtd></mtd></mtr><mtr><mtd><mi>arctan</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>x</mi><mtext>&nbsp;</mtext></mtd><mtd><mi></mi><mo>=</mo><mtext>&nbsp;</mtext><mi>x</mi><mo>−</mo><mfrac><msup><mi>x</mi><mn>3</mn></msup><mn>3</mn></mfrac><mo>+</mo><mfrac><msup><mi>x</mi><mn>5</mn></msup><mn>5</mn></mfrac><mo>−</mo><mfrac><msup><mi>x</mi><mn>7</mn></msup><mn>7</mn></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>n</mi></msup><mfrac><msup><mi>x</mi><mrow data-mjx-texclass="ORD"><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mrow><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mtd></mtr><mtr><mtd></mtd></mtr><mtr><mtd><mi>arcsin</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>x</mi></mtd><mtd><mi></mi><mo>=</mo><mi>x</mi><mo>+</mo><mfrac><msup><mi>x</mi><mn>3</mn></msup><mn>6</mn></mfrac><mo>+</mo><mfrac><mrow><mn>3</mn><msup><mi>x</mi><mn>5</mn></msup></mrow><mn>40</mn></mfrac><mo>+</mo><mfrac><mrow><mn>5</mn><msup><mi>x</mi><mn>7</mn></msup></mrow><mn>112</mn></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mfrac><mrow><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo stretchy="false">)</mo><mo>!</mo></mrow><mrow><msup><mn>4</mn><mi>n</mi></msup><mo stretchy="false">(</mo><mi>n</mi><mo>!</mo><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mfrac><msup><mi>x</mi><mrow data-mjx-texclass="ORD"><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup></mtd></mtr><mtr><mtd></mtd></mtr><mtr><mtd><mi>arccos</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>x</mi><mtext>&nbsp;</mtext></mtd><mtd><mi></mi><mo>=</mo><mtext>&nbsp;</mtext><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>−</mo><mi>arcsin</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>x</mi><mo>=</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>−</mo><munderover><mo data-mjx-texclass="OP">∑</mo><mrow data-mjx-texclass="ORD"><mi>n</mi><mo>=</mo><mn>0</mn></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">∞</mi></mrow></munderover><mfrac><mrow><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo stretchy="false">)</mo><mo>!</mo></mrow><mrow><msup><mn>4</mn><mi>n</mi></msup><mo stretchy="false">(</mo><mi>n</mi><mo>!</mo><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mfrac><msup><mi>x</mi><mrow data-mjx-texclass="ORD"><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup></mtd></mtr><mtr><mtd></mtd></mtr><mtr><mtd><mfrac><mn>1</mn><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></mfrac></mtd><mtd><mi></mi><mo>=</mo><mn>1</mn><mo>+</mo><mi>x</mi><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mo>⋯</mo><mo>+</mo><msup><mi>x</mi><mi>n</mi></msup><mo>+</mo><mi>ο</mi><mo stretchy="false">(</mo><msup><mi>x</mi><mi>n</mi></msup><mo stretchy="false">)</mo><mo>,</mo><mi>x</mi><mo>∈</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false">)</mo></mtd></mtr><mtr><mtd></mtd></mtr><mtr><mtd><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><mi>x</mi></mrow></mfrac></mtd><mtd><mi></mi><mo>=</mo><mn>1</mn><mo>−</mo><mi>x</mi><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mo>⋯</mo><mo>+</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>n</mi></msup><msup><mi>x</mi><mi>n</mi></msup><mo>+</mo><mi>ο</mi><mo stretchy="false">(</mo><msup><mi>x</mi><mi>n</mi></msup><mo stretchy="false">)</mo><mo>,</mo><mi>x</mi><mo>∈</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false">)</mo></mtd></mtr><mtr><mtd></mtd></mtr><mtr><mtd><mi>l</mi><mi>n</mi><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><mo stretchy="false">)</mo></mtd><mtd><mi></mi><mo>=</mo><mi>x</mi><mo>−</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mrow><mn>2</mn><mo>!</mo></mrow></mfrac><mo>+</mo><mfrac><msup><mi>x</mi><mn>3</mn></msup><mrow><mn>3</mn><mo>!</mo></mrow></mfrac><mo>−</mo><mfrac><msup><mi>x</mi><mn>4</mn></msup><mrow><mn>4</mn><mo>!</mo></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mfrac><msup><mi>x</mi><mi>n</mi></msup><mi>n</mi></mfrac><mo>+</mo><mi>ο</mi><mo stretchy="false">(</mo><msup><mi>x</mi><mrow data-mjx-texclass="ORD"><mi>n</mi></mrow></msup><mo stretchy="false">)</mo></mtd></mtr></mtable></math></mjx-assistive-mml></mjx-container></div></div><p>&nbsp;</p></div></div>
+</body>
+</html>
